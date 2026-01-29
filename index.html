@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Registro de Producción - Hongos</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Registro de Producción</h1>
+    <p>Control y documentación de producción de hongos</p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <form id="entryForm">
+        <div class="row">
+          <label>Fecha<input type="date" id="fecha" required /></label>
+          <label>Lote<input type="text" id="lote" placeholder="Lote / ID" /></label>
+        </div>
+        <div class="row">
+          <label>Bandejas<input type="number" id="bandejas" min="0" step="1" required /></label>
+          <label>Peso (kg)<input type="number" id="peso" min="0" step="0.01" required /></label>
+          <label>Humedad (%)<input type="number" id="humedad" min="0" max="100" step="0.1" /></label>
+        </div>
+        <label class="full">Observaciones<textarea id="obs" rows="2"></textarea></label>
+
+        <div class="actions">
+          <button type="submit" id="saveBtn">Guardar entrada</button>
+          <button type="button" id="clearBtn">Limpiar formulario</button>
+          <button type="button" id="exportBtn">Exportar CSV</button>
+        </div>
+      </form>
+
+      <div class="calculations">
+        <h3>Totales y cálculos</h3>
+        <p id="totalEntradas">Entradas: 0</p>
+        <p id="totalPeso">Peso total: 0 kg</p>
+        <p id="pesoPromedio">Peso promedio por bandeja: 0 kg</p>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <h2>Historial</h2>
+      <table id="entriesTable">
+        <thead>
+          <tr>
+            <th>Fecha</th><th>Lote</th><th>Bandejas</th><th>Peso (kg)</th><th>Humedad (%)</th><th>Obs</th><th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <small>Proyecto Producción de Hongos — Registro básico</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
